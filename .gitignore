@@ -1,6 +1,33 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/node,windows,macos,linux
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,windows,macos,linux
+# Created by https://www.toptal.com/developers/gitignore/api/node,windows,firebase,linux,macos,git
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,windows,firebase,linux,macos,git
+
+### Firebase ###
+.idea
+**/node_modules/*
+**/.firebaserc
+
+### Firebase Patch ###
+.runtimeconfig.json
+.firebase/
+
+# Firebase key
+.b43---1---consultorio-aad59ac836bc.json
+
+### Git ###
+# Created by git for backups. To disable backups in Git:
+# $ git config --global mergetool.keepBackup false
+*.orig
+
+# Created by git when using merge tools for conflicts
+*.BACKUP.*
+*.BASE.*
+*.LOCAL.*
+*.REMOTE.*
+*_BACKUP_*.txt
+*_BASE_*.txt
+*_LOCAL_*.txt
+*_REMOTE_*.txt
 
 ### Linux ###
 *~
@@ -202,4 +229,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/node,windows,macos,linux
+# End of https://www.toptal.com/developers/gitignore/api/node,windows,firebase,linux,macos,git
