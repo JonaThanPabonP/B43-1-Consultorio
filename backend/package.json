@@ -5,10 +5,21 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js",
-    "dev": "node index.js"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
-  "keywords": ["consultorio","desarrollo web","node js","firebase","B43","mintic","uis"],
+  "keywords": [
+    "consultorio",
+    "desarrollo web",
+    "node js",
+    "firebase",
+    "B43",
+    "mintic",
+    "uis"
+  ],
   "author": "Grupo B43 - Subgrupo 1",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "firebase-admin": "^10.0.0"
+  }
 }
