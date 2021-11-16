@@ -11,7 +11,7 @@
 .runtimeconfig.json
 .firebase/
 
-# Firebase key
+### Firestore key ###
 b43---1---consultorio-5ef7a9213bcf.json
 
 
