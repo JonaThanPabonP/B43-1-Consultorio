@@ -1,13 +1,15 @@
-// Conexión a la base de datos
+const routerAPI = require('./routes');
+const express = require('express');
+const app = express();
+const port = 3000;
 
-const admin = require('firebase-admin');
+app.use(express.static('public'));
+app.use(express.json());
 
-const serviceAccount = require('./b43---1---consultorio-5ef7a9213bcf.json');
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
+routerAPI(app);
+
+
+app.listen(port, ()=>{
+    console.log('My port is listening:', port);
 });
-
-const db = admin.firestore();
-
-module.exports = db;
