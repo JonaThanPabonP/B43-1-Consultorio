@@ -1,6 +1,6 @@
 const db = require('./firebase.js');
 
-// Obtener el usuario
+// Obtener el medico
 function getMed(mid, callback) {
     return db.collection('meds').doc(mid).get()
         .then((refDoc)=>{
@@ -14,7 +14,7 @@ function getMed(mid, callback) {
         })
 }
 
-// Añadir Usuarios
+// Añadir Medicos
 function addMed(med, callback) {
     return db.collection('meds').add(med)
         .then(()=>{
@@ -26,7 +26,7 @@ function addMed(med, callback) {
         })
 }
 
-// Actualizar usuarios set()
+// Actualizar medico set()
 function replaceMed(mid, med, callback) {
     return db.collection('meds').doc(mid).set(med)
         .then(()=>{
@@ -38,7 +38,7 @@ function replaceMed(mid, med, callback) {
         })
 }
 
-// Eliminar usuario
+// Eliminar medico
 function deleteMed(mid, callback) {
     return db.collection('meds').doc(mid).delete()
         .then(()=>{
