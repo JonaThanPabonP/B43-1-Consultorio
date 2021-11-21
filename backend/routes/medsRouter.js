@@ -7,7 +7,7 @@ const router = express.Router();
 // Método GET
 router.get('/:id', (req,res)=>{
     const mid = req.params.id;
-    dbU.getUser(mid, function(doc){
+    dbM.getMed(mid, function(doc){
         res.send(doc);
     })
 })
@@ -16,7 +16,7 @@ router.get('/:id', (req,res)=>{
 // Método POST
 router.post('/', (req,res)=>{
     const med = req.body;
-    dbU.addUser(med, function(response){
+    dbM.addMed(med, function(response){
         res.send(response);
     })
 })
@@ -26,7 +26,7 @@ router.post('/', (req,res)=>{
 router.put('/:id', (req,res)=>{
     const med = req.body;
     const mid = req.params.id;
-    dbU.replaceUser(mid, med, function(response){
+    dbM.replaceMed(mid, med, function(response){
         res.send(response);
     })
 })
@@ -35,7 +35,7 @@ router.put('/:id', (req,res)=>{
 // Método DELETE
 router.delete('/:id', (req,res)=>{
     const mid = req.params.id;
-    dbU.deleteUser(mid, function(response){
+    dbM.deleteMed(mid, function(response){
         res.send(response);
     })
 })

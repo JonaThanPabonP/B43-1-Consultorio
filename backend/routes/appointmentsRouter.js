@@ -7,7 +7,7 @@ const router = express.Router();
 // Método GET
 router.get('/:id', (req,res)=>{
     const aid = req.params.id;
-    dbU.getUser(aid, function(doc){
+    dbA.getAppointment(aid, function(doc){
         res.send(doc);
     })
 })
@@ -16,7 +16,7 @@ router.get('/:id', (req,res)=>{
 // Método POST
 router.post('/', (req,res)=>{
     const appo = req.body;
-    dbU.addUser(appo, function(response){
+    dbA.addAppointment(appo, function(response){
         res.send(response);
     })
 })
@@ -26,7 +26,7 @@ router.post('/', (req,res)=>{
 router.put('/:id', (req,res)=>{
     const appo = req.body;
     const aid = req.params.id;
-    dbU.replaceUser(aid, appo, function(response){
+    dbA.replaceAppointment(aid, appo, function(response){
         res.send(response);
     })
 })
@@ -35,7 +35,7 @@ router.put('/:id', (req,res)=>{
 // Método DELETE
 router.delete('/:id', (req,res)=>{
     const aid = req.params.id;
-    dbU.deleteUser(aid, function(response){
+    dbA.deleteAppointment(aid, function(response){
         res.send(response);
     })
 })

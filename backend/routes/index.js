@@ -1,6 +1,6 @@
 const routerUsers = require('./usersRouter.js');
 const routerMeds = require('./medsRouter.js');
-const routerSuperUser = require('./superUserRouter.js');
+// const routerSuperUser = require('./superUserRouter.js');
 const routerAppointments = require('./appointmentsRouter.js');
 
 
@@ -9,7 +9,7 @@ const routerAppointments = require('./appointmentsRouter.js');
 function RoutesAPI(app) {
     app.use('/users', routerUsers);
     app.use('/meds', routerMeds);
-    app.use('/superuser', routerSuperUser);
+    // app.use('/superuser', routerSuperUser);
     app.use('/appointments', routerAppointments);
 }
 
