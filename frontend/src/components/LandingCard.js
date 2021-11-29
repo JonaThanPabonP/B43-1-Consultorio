@@ -1,18 +1,26 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import landingImage from '../assets/img/landing-image.jpg'
+import landingImage from "../assets/img/landing-image.jpg";
+
 
 const LandingCard = () => {
   return (
     <>
-      <Card>
-        <Card.Img variant="top" src={landingImage} />
-        <Card.Body>
+      <Card className="text-center bg-dark text-white" style={{ width: '85%' }}>
+        <Card.Img src={landingImage} />
+        <Card.ImgOverlay>
+            <Card.Title>CONSULTORIO</Card.Title>
+        </Card.ImgOverlay>
           <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+            "Consultorio" es un proyecto que nace a partir de la necesidad de
+            tener una plataforma siempre disponible para los pacientes, quienes
+            tendrán el derecho de agendar su cita médica sin salir de casa y lo
+            mejor, sin filas largas y demoradas.
           </Card.Text>
-        </Card.Body>
+          <Card.Text>
+            De igual manera los médicos tienen acceso a sus agendas diarias a
+            través de esta plataforma y poder así gestionar su día a día.
+          </Card.Text>
       </Card>
     </>
   );

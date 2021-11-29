@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Nav, Container, Image } from "react-bootstrap";
 
-import imagen from '../assets/img/logo.png';
+import imagen from "../assets/img/logo.png";
 
 const NavBarBasic = () => {
   return (
@@ -9,16 +9,7 @@ const NavBarBasic = () => {
       <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="/">
-          <Image src={imagen} width="54"
-        height="30"
- fluid />
-            {/* <img
-              alt=""
-              src="../assets/img/logo.png"
-              width="54"
-              height="30"
-              className="d-inline-block align-top"
-            /> */}
+            <Image src={imagen} width="54" height="30" fluid />
             Consultorio
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
