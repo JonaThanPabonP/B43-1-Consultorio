@@ -11,13 +11,17 @@ const Landing = () => {
       <div
         style={{
           display: "flex",
-          justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
+          boxShadow: "5px 5px 10px 2px rgba(0,0,0,0.3)",
         }}
       >
         <LandingCard />
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div 
+          style={{ 
+            justifyContent: "space-between" 
+          }}
+        >
           <UserButton />
           <MedButton />
         </div>

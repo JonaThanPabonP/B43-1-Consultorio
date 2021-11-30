@@ -9,7 +9,7 @@ const NavBarBasic = () => {
       <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="/">
-            <Image src={imagen} width="54" height="30" fluid />
+            <Image src={imagen} width="54" height="30" fluid />{' '}
             Consultorio
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
