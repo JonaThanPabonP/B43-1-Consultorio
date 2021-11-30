@@ -1,7 +1,7 @@
 import React from 'react'
-import UserLoginCard from '../components/UserLoginCard'
+import MedLoginCard from '../components/UserLoginCard'
 
-const UserLogin = () => {
+const MedLogin = () => {
   return (
     <>
       <div
@@ -12,11 +12,11 @@ const UserLogin = () => {
           margin: "80px",
         }}
       >
-        <h1 style={{ fontSize:"60px", fontFamily: "sans-serif" }}>INGRESO DE USUARIO</h1>
-        <UserLoginCard/>
+        <h1 style={{ fontSize:"60px", fontFamily: "sans-serif" }}>INGRESO DE MÉDICOS</h1>
+        <MedLoginCard/>
       </div>
     </>
   )
 }
 
-export default UserLogin
+export default MedLogin

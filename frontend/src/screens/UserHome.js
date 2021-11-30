@@ -1,12 +1,16 @@
-import React from 'react'
-import NavbarUserMed from '../components/NavbarUserMed'
+import React from "react";
+import { Stack } from "react-bootstrap";
 
 const UserHome = () => {
   return (
     <>
-      <NavbarUserMed />
+      <Stack gap={3}>
+        <div className="bg-light border">First item</div>
+        <div className="bg-light border">Second item</div>
+        <div className="bg-light border">Third item</div>
+      </Stack>
     </>
-  )
-}
+  );
+};
 
-export default UserHome
+export default UserHome;

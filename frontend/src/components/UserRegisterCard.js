@@ -35,17 +35,28 @@ const UserRegisterCard = () => {
           </Row>
           <Row>
             <Col>
-              <FloatingLabel label="Especialidad" className="mb-3">
-                <Form.Select aria-label="Floating label select example">
-                  <option></option>
-                  <option value="1">Especialidad 1</option>
-                  <option value="2">Especialidad 2</option>
-                  <option value="3">Especialidad 3</option>
-                </Form.Select>
+              <FloatingLabel label="Fecha de nacimiento" className="mb-3">
+                <Form.Control type="date" />
               </FloatingLabel>
             </Col>
             <Col>
-              <FloatingLabel label="Registro médico" className="mb-3">
+              <FloatingLabel label="Género" className="mb-3">
+                <Form.Select aria-label="Floating label select example">
+                  <option></option>
+                  <option value="1">Femenino</option>
+                  <option value="2">Masculino</option>
+                </Form.Select>
+              </FloatingLabel>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <FloatingLabel label="Dirección" className="mb-3">
+                <Form.Control type="text" />
+              </FloatingLabel>
+            </Col>
+            <Col>
+            <FloatingLabel label="Número de teléfono" className="mb-3">
                 <Form.Control type="text" />
               </FloatingLabel>
             </Col>

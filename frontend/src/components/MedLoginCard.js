@@ -1,6 +1,6 @@
 import React from 'react'
 
-const UserMedLogin = () => {
+const MedLoginCard = () => {
   return (
     <>
       
@@ -8,4 +8,4 @@ const UserMedLogin = () => {
   )
 }
 
-export default UserMedLogin
+export default MedLoginCard
