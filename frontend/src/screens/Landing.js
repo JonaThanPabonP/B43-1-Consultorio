@@ -1,9 +1,21 @@
 import React from "react";
+import { Navigate } from "react-router-dom";
 import LandingCard from "../components/LandingCard";
 import MedButton from "../components/MedButton";
 import UserButton from "../components/UserButton";
 
 const Landing = () => {
+
+  var user = JSON.parse(localStorage.getItem("user"));
+
+  if (user != undefined) {
+    if(user.flagNewUser == false){
+      return <Navigate to="/user-home" />;
+    }else{
+      return <Navigate to="/" />;
+    }    
+  }
+
   return (
     <>
       <div

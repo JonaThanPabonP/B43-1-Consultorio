@@ -1,6 +1,6 @@
 import React from "react";
-import { Tooltip, OverlayTrigger, Button, Image } from "react-bootstrap";
-import { FaRegClock, FaRegCalendarAlt } from "react-icons/fa";
+import { Tooltip, OverlayTrigger, Button, Image, Stack } from "react-bootstrap";
+import { FaRegClock, FaRegCalendarAlt, FaStethoscope } from "react-icons/fa";
 
 import btndel from "../assets/img/cancelar.png";
 import btnedit from "../assets/img/editar.png";
@@ -16,19 +16,20 @@ const UserAppointment = () => {
       }}
     >
       <div>
-        <div
-          style={{
-            display: "flex",
-            alignItems:"center",
-          }}
-        >
-          <FaRegCalendarAlt/><p>Fecha</p>
-          <FaRegClock /><p>Hora</p>
-        </div>
-        <div>
-          <h5>Especialidad</h5>
-          <h5>Médico</h5>
-        </div>
+        <h4><strong>Especialidad</strong></h4>
+        <Stack gap={3} direction="horizontal">
+          <FaRegCalendarAlt />
+          <div>Fecha:</div>
+        </Stack>
+        <Stack gap={3} direction="horizontal">
+          <FaRegClock />
+          <div>Hora:</div>
+        </Stack>
+
+        <Stack gap={3} direction="horizontal">
+          <FaStethoscope />
+          <div>Médico:</div>
+        </Stack>
       </div>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <OverlayTrigger overlay={<Tooltip>Borrar</Tooltip>}>
