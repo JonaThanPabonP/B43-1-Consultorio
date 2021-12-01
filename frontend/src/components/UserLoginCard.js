@@ -2,7 +2,7 @@ import React from "react";
 import { Form, Button, FloatingLabel, Image } from "react-bootstrap";
 
 import userLogo from "../assets/img/usuario.png";
-import GoogleLoginButton from "./GoogleLoginButton";
+import UserGoogleLoginButton from "./UserGoogleLoginButton";
 
 const UserLoginCard = () => {
   return (
@@ -49,7 +49,7 @@ const UserLoginCard = () => {
           <p className="text-center">ó</p>
          
           <div>
-            <GoogleLoginButton/>
+            <UserGoogleLoginButton/>
           </div>
 
         </Form>

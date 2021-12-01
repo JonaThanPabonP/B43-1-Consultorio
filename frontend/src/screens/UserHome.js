@@ -1,14 +1,12 @@
 import React from "react";
-import { Stack } from "react-bootstrap";
+import UserAgenda from "../components/UserAgenda";
+
 
 const UserHome = () => {
   return (
     <>
-      <Stack gap={3}>
-        <div className="bg-light border">First item</div>
-        <div className="bg-light border">Second item</div>
-        <div className="bg-light border">Third item</div>
-      </Stack>
+      
+      <UserAgenda/>
     </>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react'
-import MedLoginCard from '../components/UserLoginCard'
+import MedLoginCard from '../components/MedLoginCard'
 
 const MedLogin = () => {
   return (
