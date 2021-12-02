@@ -17,6 +17,7 @@ const NavBar = () => {
 
   const logOut = () => {
     localStorage.removeItem("user");
+    localStorage.clear();
   };
 
   if (user != undefined) {
