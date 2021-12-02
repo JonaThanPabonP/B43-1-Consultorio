@@ -1,9 +1,9 @@
 import React from "react";
-import { Stack, Button } from "react-bootstrap";
-import AddAppointment from "./AddAppointment";
+import { Stack } from "react-bootstrap";
+import ViewAppointment from "./ViewAppointment";
 import UserAppointment from "./UserAppointment";
 
-const UserAgenda = () => {
+const MedDailyAgenda = () => {
   return (
     <>
       <div
@@ -14,10 +14,23 @@ const UserAgenda = () => {
           borderRadius: "25px",
         }}
       >
-        <div style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
-        <h1 style={{
-          marginLeft: "15px"}}><strong>AGENDA CITAS</strong></h1>
-          <div><AddAppointment/></div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <h1
+            style={{
+              marginLeft: "15px",
+            }}
+          >
+            <strong>AGENDA CITAS</strong>
+          </h1>
+          <div>
+            <ViewAppointment />
+          </div>
         </div>
         <br />
         <Stack gap={3}>
@@ -32,4 +45,4 @@ const UserAgenda = () => {
   );
 };
 
-export default UserAgenda;
+export default MedDailyAgenda;
