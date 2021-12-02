@@ -1,7 +1,7 @@
 import React from "react";
-import { Stack } from "react-bootstrap";
-import ViewAppointment from "./ViewAppointment";
-import UserAppointment from "./UserAppointment";
+import { Stack, Form, Col, Button } from "react-bootstrap";
+
+import Appointment from "./Appointment";
 
 const MedDailyAgenda = () => {
   return (
@@ -21,24 +21,29 @@ const MedDailyAgenda = () => {
             alignItems: "center",
           }}
         >
-          <h1
-            style={{
-              marginLeft: "15px",
-            }}
-          >
-            <strong>AGENDA CITAS</strong>
-          </h1>
-          <div>
-            <ViewAppointment />
-          </div>
+          <Col md={8}>
+            <h1
+              style={{
+                marginLeft: "15px",
+              }}
+            >
+              <strong>AGENDA CITAS</strong>
+            </h1>
+          </Col>
+          <Col md={3}>
+            <Form.Control type="date" />
+          </Col>
+          <Col md={1} style={{display:"flex", justifyContent:"center"}}>
+            <div>
+              <Button variant="light"><i class="bi bi-search"></i></Button>
+            </div>
+          </Col>
         </div>
         <br />
-        <Stack gap={3}>
-          <UserAppointment />
-          <UserAppointment />
-          <UserAppointment />
-          <UserAppointment />
-          <UserAppointment />
+        <Stack>
+          <Appointment />
+          <Appointment />
+          <Appointment />
         </Stack>
       </div>
     </>

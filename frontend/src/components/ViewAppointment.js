@@ -17,11 +17,9 @@ function MyVerticallyCenteredModal(props) {
           <Modal.Title id="contained-modal-title-vcenter">
             <Row>
               <Col>
-                <div>Fecha</div>
                 <div>dd/mm/aaaa</div>
               </Col>
               <Col>
-                <div>Hora</div>
                 <div>HH:mm</div>
               </Col>
             </Row>
@@ -45,15 +43,14 @@ const ViewAppointment = () => {
 
   const aid = "r8F5OfuVwtfQnAV688Mu";
   getAppointment(aid, (res) => {
-    var appointment = localStorage.setItem('app1', JSON.stringify(res.data));
+    var appointment = localStorage.setItem("app1", JSON.stringify(res.data));
     console.log(appointment);
-    
   });
 
   return (
     <>
-      <Button variant="primary" onClick={() => setModalShow(true)}>
-        Agregar cita
+      <Button variant="outline-secondary" onClick={() => setModalShow(true)}>
+        <i class="bi bi-eye-fill"></i>
       </Button>
 
       <MyVerticallyCenteredModal
