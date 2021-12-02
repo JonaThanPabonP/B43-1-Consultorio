@@ -33,9 +33,11 @@ const MedDailyAgenda = () => {
           <Col md={3}>
             <Form.Control type="date" />
           </Col>
-          <Col md={1} style={{display:"flex", justifyContent:"center"}}>
+          <Col md={1} style={{ display: "flex", justifyContent: "center" }}>
             <div>
-              <Button variant="light"><i class="bi bi-search"></i></Button>
+              <Button variant="light">
+                <i class="bi bi-search"></i>
+              </Button>
             </div>
           </Col>
         </div>

@@ -4,6 +4,7 @@ import { Navbar, Nav, Container, Image, NavDropdown } from "react-bootstrap";
 import imagen from "../assets/img/logo.png";
 
 const NavBar = () => {
+  var route = "/";
   var user = JSON.parse(localStorage.getItem("user"));
   var navLinks = (
     <Nav>
@@ -19,19 +20,27 @@ const NavBar = () => {
   };
 
   if (user != undefined) {
+    if (user.type == "paciente") {
+      route = "/user-home";
+    } else if (user.type == "médico") {
+      route = "/med-home";
+    }
+
     navLinks = (
       <Nav>
-        <Nav.Link href="/user-home">
+        <Nav.Link href="#">
           <strong>{user.name}</strong>
         </Nav.Link>
-        <Nav.Link href="/user-home">
+        <Nav.Link href="#">
           <Image src={user.photoUrl} width="30px" height="30px" roundedCircle />
         </Nav.Link>
-        
+
         <NavDropdown title=" " id="basic-nav-dropdown">
           <NavDropdown.Item href="/contact">Contacto</NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item href="/" onClick={logOut}>Salir</NavDropdown.Item>
+          <NavDropdown.Item href="/" onClick={logOut}>
+            Salir
+          </NavDropdown.Item>
         </NavDropdown>
       </Nav>
     );
@@ -41,7 +50,7 @@ const NavBar = () => {
     <div>
       <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="/">
+          <Navbar.Brand href={route}>
             <Image src={imagen} width="54" height="30" fluid /> Consultorio
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
