@@ -16,6 +16,22 @@ function getAppointment(aid, callback) {
         })
 }
 
+function getAllAppointments(callback) {
+    return db.collection('appointment').get()
+        .then((refDoc)=>{
+            var arrayAppointments = [];
+            refDoc.forEach(doc=>{
+                console.log(doc.id,'=>',doc.data);
+                arrayAppointments.push(doc.data());
+            })
+            callback(arrayAppointments);
+        })
+        .catch((err)=>{
+            console.error('Error to get medical appointment',err);
+            callback('Error to get medical appointment',err);
+        })
+}
+
 // Añadir cita
 function addAppointment(appointment, callback) {
     return db.collection('appointment').add(appointment)
@@ -52,9 +68,27 @@ function deleteAppointment(aid, callback) {
         })
 }
 
+// Buscar filtrado citas por fecha
+function searchAppointments(fecha, callback) {
+    return db.collection('appointment').where("fecha", "==", fecha).get()
+        .then((refDoc)=>{
+            var arrayAppointments = []
+            refDoc.forEach(doc => {                
+                arrayAppointments.push(doc.data());
+            })
+            callback(arrayAppointments);
+        })
+        .catch((err)=>{
+            console.error('Error to find experts',err);
+            callback('Error to find experts',err);
+        })
+}
+
 module.exports = {
     getAppointment,
+    getAllAppointments,
     addAppointment,
     replaceAppointment,
-    deleteAppointment
+    deleteAppointment,
+    searchAppointments
 }

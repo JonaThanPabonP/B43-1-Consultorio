@@ -7,7 +7,9 @@ const MedHome = () => {
 
   if (user == undefined) {
     return <Navigate to="/" />;
-  } 
+  } else if (user.type != "médico") {
+    return <Navigate to="/user-home" />;
+  }
 
   return (
     <>

@@ -8,6 +8,8 @@ const UserHome = () => {
   var user = JSON.parse(localStorage.getItem("user"));
   if (user == undefined) {
     return <Navigate to="/" />;
+  } else if (user.type != "paciente") {
+    return <Navigate to="/med-home" />;
   }
 
   return (
