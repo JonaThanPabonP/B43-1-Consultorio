@@ -1,5 +1,5 @@
 import React from "react";
-import { Stack, Button } from "react-bootstrap";
+import { Stack } from "react-bootstrap";
 import AddAppointment from "./AddAppointment";
 import UserAppointment from "./UserAppointment";
 

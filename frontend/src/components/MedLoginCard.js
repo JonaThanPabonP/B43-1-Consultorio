@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import { Form, Button, FloatingLabel, Image } from "react-bootstrap";
 
 import medLogo from "../assets/img/med.png";
@@ -45,17 +45,16 @@ const MedLoginCard = () => {
               Registrarme
             </Button>
           </div>
-          
-          <p className="text-center">ó</p>
-         
-          <div>
-            <MedGoogleLoginButton/>
-          </div>
 
+          <p className="text-center">ó</p>
+
+          <div>
+            <MedGoogleLoginButton />
+          </div>
         </Form>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default MedLoginCard
+export default MedLoginCard;

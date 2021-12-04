@@ -20,9 +20,16 @@ router.get('/', (req,res)=>{
     });
 })
 // Obtener listado de citas por fecha
-router.get('/search/:fecha', (req,res)=>{
+router.get('/searchfecha/:fecha', (req,res)=>{
     const fecha = req.params.fecha;
-    dbA.searchAppointments(fecha, function (arrayAppointments){
+    dbA.searchAppoByDate(fecha, function (arrayAppointments){
+        res.send(arrayAppointments);
+    })
+})
+// Obtener listado de citas por usuario(id)
+router.get('/searchpaciente/:paciente', (req,res)=>{
+    const paciente = req.params.idPaciente;
+    dbA.searchAppoByUser(paciente, function (arrayAppointments){
         res.send(arrayAppointments);
     })
 })
