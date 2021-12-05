@@ -17,13 +17,12 @@ function MyVerticallyCenteredModal(props) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <AppointmentForm/>
-          <i>*Rellene todos los campos y de clic en enviar.</i>
+          <AppointmentForm />
         </Modal.Body>
         <Modal.Footer>
-          <Button type="submit" variant="success" onClick={props.onHide}>
-            Enviar
-          </Button>
+          <p style={{ color: "red", fontSize: "10px" }}>
+            <i>* Rellene todos los campos.</i>
+          </p>
         </Modal.Footer>
       </Modal>
     </>

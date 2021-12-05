@@ -16,22 +16,30 @@ const MedRegisterCard = () => {
       regNumber: even.target[4].value,
       email: even.target[5].value,
       confEmail: even.target[6].value,
-      pass: even.target[6].value,
-      confPass: even.target[6].value,
-      // photo: user.photoUrl,
-      // id: user.mid,
+      pass: even.target[7].value,
+      confPass: even.target[8].value,
+      type: "médico",
     };
 
     addMed(obj, (res) => {
       console.log(res);
-      if (res == "Success to create an med") {
+      if (res == "Success") {
         user.flagNewUser = false;
+        user = Object.assign(user, obj)
         localStorage.setItem("user", JSON.stringify(user));
         window.location.href = "/med-home";
       } else {
         alert("Algo salió mal, vuelve a intentarlo");
       }
     });
+  }
+
+  var nombre,
+    correo = "";
+
+  if (user != undefined) {
+    nombre = user.name;
+    correo = user.email;
   }
 
   return (
@@ -44,13 +52,13 @@ const MedRegisterCard = () => {
           borderRadius: "25px",
         }}
       >
-        <Form onSubmit={save} >
+        <Form onSubmit={save}>
           <FloatingLabel
             label="Nombre completo"
             className="mb-3"
             controlId="name"
           >
-            <Form.Control type="text" required/>
+            <Form.Control type="text" value={nombre} required />
           </FloatingLabel>
           <Row>
             <Col>
@@ -59,7 +67,10 @@ const MedRegisterCard = () => {
                 className="mb-3"
                 controlId="docType"
               >
-                <Form.Select aria-label="Floating label select example" required>
+                <Form.Select
+                  aria-label="Floating label select example"
+                  required
+                >
                   <option></option>
                   <option value="cc">Cédula de Ciudadanía</option>
                   <option value="ti">Tarjeta de Identidad</option>
@@ -73,7 +84,7 @@ const MedRegisterCard = () => {
                 className="mb-3"
                 controlId="docNumber"
               >
-                <Form.Control type="text" required/>
+                <Form.Control type="text" required />
               </FloatingLabel>
             </Col>
           </Row>
@@ -84,7 +95,10 @@ const MedRegisterCard = () => {
                 className="mb-3"
                 controlId="spec"
               >
-                <Form.Select aria-label="Floating label select example" required>
+                <Form.Select
+                  aria-label="Floating label select example"
+                  required
+                >
                   <option></option>
                   <option value="mg">Medicina General</option>
                   <option value="c">Cardiología</option>
@@ -98,7 +112,7 @@ const MedRegisterCard = () => {
                 className="mb-3"
                 controlId="regNumber"
               >
-                <Form.Control type="text" required/>
+                <Form.Control type="text" required />
               </FloatingLabel>
             </Col>
           </Row>
@@ -107,14 +121,14 @@ const MedRegisterCard = () => {
             className="mb-3"
             controlId="email"
           >
-            <Form.Control type="email" required/>
+            <Form.Control type="email" value={correo} required />
           </FloatingLabel>
           <FloatingLabel
             label="Confirmar correo electrónico"
             className="mb-3"
             controlId="confEmail"
           >
-            <Form.Control type="email" required/>
+            <Form.Control type="email" value={correo} required />
           </FloatingLabel>
           <Row>
             <Col>
@@ -123,7 +137,7 @@ const MedRegisterCard = () => {
                 className="mb-3"
                 controlId="pass"
               >
-                <Form.Control type="password" required/>
+                <Form.Control type="password" required />
               </FloatingLabel>
             </Col>
             <Col>
@@ -132,10 +146,13 @@ const MedRegisterCard = () => {
                 className="mb-3"
                 controlId="confPass"
               >
-                <Form.Control type="password" required/>
+                <Form.Control type="password" required />
               </FloatingLabel>
             </Col>
           </Row>
+          <p style={{ fontSize: "10px", color: "red" }}>
+            * Todos los campos son requeridos.
+          </p>
           <div
             style={{
               display: "flex",

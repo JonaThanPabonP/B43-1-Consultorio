@@ -2,7 +2,7 @@ import React from "react";
 import { Modal, Button, Col, Row } from "react-bootstrap";
 import AppointmentInfo from "./AppointmentInfo";
 
-import { getAppointment } from "../apis/crud";
+import { getAppointment } from "../apis/crudAppos";
 
 function MyVerticallyCenteredModal(props) {
   return (

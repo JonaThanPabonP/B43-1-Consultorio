@@ -18,7 +18,7 @@ function getMed(mid, callback) {
 function addMed(med, callback) {
     return db.collection('meds').add(med)
         .then(()=>{
-            callback('Success to create an med');
+            callback('Success');
         })
         .catch((err)=>{
             console.error('Error to add med',err);

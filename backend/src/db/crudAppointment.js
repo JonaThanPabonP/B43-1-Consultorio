@@ -43,7 +43,7 @@ function addAppointment(appointment, callback) {
     .collection("appointment")
     .add(appointment)
     .then(() => {
-      callback("Success to create a medical appointment");
+      callback("Success");
     })
     .catch((err) => {
       console.error("Error to add medical appointment", err);
@@ -58,7 +58,7 @@ function replaceAppointment(aid, appointment, callback) {
     .doc(aid)
     .set(appointment)
     .then(() => {
-      callback("Success to update replacing medical appointment");
+      callback("Success");
     })
     .catch((err) => {
       console.error("Error to replace medical appointment", err);
@@ -73,7 +73,7 @@ function deleteAppointment(aid, callback) {
     .doc(aid)
     .delete()
     .then(() => {
-      callback("Success to delete the medical appointment");
+      callback("Success");
     })
     .catch((err) => {
       console.error("Error to delete medical appointment", err);

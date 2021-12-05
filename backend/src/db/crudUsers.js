@@ -18,7 +18,7 @@ function getUser(uid, callback) {
 function addUser(user, callback) {
     return db.collection('users').add(user)
         .then(()=>{
-            callback('Success to create an user');
+            callback("Success");
         })
         .catch((err)=>{
             console.error('Error to add user',err);
