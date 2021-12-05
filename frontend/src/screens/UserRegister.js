@@ -12,7 +12,7 @@ const UserRegister = () => {
           margin: "80px",
         }}
       >
-        <h1 style={{ fontSize:"60px", fontFamily: "sans-serif" }}>REGISTRO DE USUARIO</h1>
+        <h1 style={{ fontSize:"60px", fontFamily: "sans-serif" }}><strong>REGISTRO DE USUARIO</strong></h1>
         <UserRegisterCard/>
       </div>
     </>

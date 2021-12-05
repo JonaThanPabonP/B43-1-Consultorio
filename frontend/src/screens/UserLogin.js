@@ -12,7 +12,7 @@ const UserLogin = () => {
           margin: "80px",
         }}
       >
-        <h1 style={{ fontSize:"60px", fontFamily: "sans-serif" }}>INGRESO DE USUARIO</h1>
+        <h1 style={{ fontSize:"60px", fontFamily: "sans-serif" }}><strong>INGRESO DE USUARIO</strong></h1>
         <UserLoginCard/>
       </div>
     </>

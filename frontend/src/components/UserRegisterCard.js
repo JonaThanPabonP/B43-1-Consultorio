@@ -1,7 +1,40 @@
 import React from "react";
 import { Button, Form, FloatingLabel, Row, Col } from "react-bootstrap";
 
+import { addUser } from '../apis/crudUser'
+
 const UserRegisterCard = () => {
+
+  var user = JSON.parse(localStorage.getItem("user"));
+
+  function save(even) {
+    even.preventDefault();
+    const obj = {
+      name: even.target[0].value,
+      docType: even.target[1].value,
+      docNumber: even.target[2].value,
+      spec: even.target[3].value,
+      regNumber: even.target[4].value,
+      email: even.target[5].value,
+      confEmail: even.target[6].value,
+      pass: even.target[6].value,
+      confPass: even.target[6].value,
+      photo: user.photoUrl,
+      id: user.uid,
+    };
+
+    addUser(obj, (res) => {
+      console.log(res);
+      if (res == "Success") {
+        user.flagNewUser = false;
+        localStorage.setItem("user", JSON.stringify(user));
+        window.location.href = "/home";
+      } else {
+        alert("Algo salió mal, vuelve a intentarlo");
+      }
+    });
+  }
+
   return (
     <>
       <div
@@ -12,7 +45,7 @@ const UserRegisterCard = () => {
           borderRadius: "25px",
         }}
       >
-        <Form>
+        <Form onSubmit={save}>
           <FloatingLabel label="Nombre completo" className="mb-3">
             <Form.Control type="text" />
           </FloatingLabel>
@@ -86,9 +119,7 @@ const UserRegisterCard = () => {
               justifyContent: "space-around",
             }}
           >
-            <Button variant="outline-danger" type="submit">
-              Limpiar
-            </Button>
+            
             <Button variant="success" type="submit">
               Registrar
             </Button>
