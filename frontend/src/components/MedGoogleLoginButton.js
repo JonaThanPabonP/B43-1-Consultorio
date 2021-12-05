@@ -27,7 +27,7 @@ const uiConfig = {
     // Avoid redirects after sign-in.
     signInSuccessWithAuthResult: (authResult) => {
       const user = {
-        uid: authResult.user.uid,
+        mid: authResult.user.mid,
         name: authResult.user.displayName,
         photoUrl: authResult.user.photoURL,
         email: authResult.user.email,

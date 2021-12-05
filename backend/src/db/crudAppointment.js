@@ -83,11 +83,11 @@ function deleteAppointment(aid, callback) {
 
 // Buscar filtrado citas por fecha
 function searchAppoByDate(fecha, callback) {
-  const fec = Timestamp.fromDate(new Date(fecha));
+//   const fec = Timestamp.fromDate(new Date(fecha));
 
   return db
     .collection("appointment")
-    .where("fecha", "==", fec)
+    .where("fecha", "==", fecha)
     .get()
     .then((refDoc) => {
       var arrayAppointments = [];

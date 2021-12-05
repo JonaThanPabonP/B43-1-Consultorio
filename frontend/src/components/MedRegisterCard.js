@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Form, FloatingLabel, Row, Col } from "react-bootstrap";
 
-import { addMed } from '../apis/crudMed'
+import { addMed } from "../apis/crudMed";
 
 const MedRegisterCard = () => {
   var user = JSON.parse(localStorage.getItem("user"));
@@ -18,16 +18,16 @@ const MedRegisterCard = () => {
       confEmail: even.target[6].value,
       pass: even.target[6].value,
       confPass: even.target[6].value,
-      photo: user.photoUrl,
-      id: user.uid,
+      // photo: user.photoUrl,
+      // id: user.mid,
     };
 
     addMed(obj, (res) => {
       console.log(res);
-      if (res == "Success") {
+      if (res == "Success to create an med") {
         user.flagNewUser = false;
         localStorage.setItem("user", JSON.stringify(user));
-        window.location.href = "/home";
+        window.location.href = "/med-home";
       } else {
         alert("Algo salió mal, vuelve a intentarlo");
       }
@@ -44,13 +44,13 @@ const MedRegisterCard = () => {
           borderRadius: "25px",
         }}
       >
-        <Form onSubmit={save}>
+        <Form onSubmit={save} >
           <FloatingLabel
             label="Nombre completo"
             className="mb-3"
             controlId="name"
           >
-            <Form.Control type="text" />
+            <Form.Control type="text" required/>
           </FloatingLabel>
           <Row>
             <Col>
@@ -59,11 +59,11 @@ const MedRegisterCard = () => {
                 className="mb-3"
                 controlId="docType"
               >
-                <Form.Select aria-label="Floating label select example">
+                <Form.Select aria-label="Floating label select example" required>
                   <option></option>
-                  <option value="1">Cédula de Ciudadanía</option>
-                  <option value="2">Tarjeta de Identidad</option>
-                  <option value="3">Cédula de Extranjería</option>
+                  <option value="cc">Cédula de Ciudadanía</option>
+                  <option value="ti">Tarjeta de Identidad</option>
+                  <option value="ce">Cédula de Extranjería</option>
                 </Form.Select>
               </FloatingLabel>
             </Col>
@@ -73,7 +73,7 @@ const MedRegisterCard = () => {
                 className="mb-3"
                 controlId="docNumber"
               >
-                <Form.Control type="text" />
+                <Form.Control type="text" required/>
               </FloatingLabel>
             </Col>
           </Row>
@@ -84,11 +84,11 @@ const MedRegisterCard = () => {
                 className="mb-3"
                 controlId="spec"
               >
-                <Form.Select aria-label="Floating label select example">
+                <Form.Select aria-label="Floating label select example" required>
                   <option></option>
-                  <option value="1">Especialidad 1</option>
-                  <option value="2">Especialidad 2</option>
-                  <option value="3">Especialidad 3</option>
+                  <option value="mg">Medicina General</option>
+                  <option value="c">Cardiología</option>
+                  <option value="rx">Rayos X</option>
                 </Form.Select>
               </FloatingLabel>
             </Col>
@@ -98,7 +98,7 @@ const MedRegisterCard = () => {
                 className="mb-3"
                 controlId="regNumber"
               >
-                <Form.Control type="text" />
+                <Form.Control type="text" required/>
               </FloatingLabel>
             </Col>
           </Row>
@@ -107,14 +107,14 @@ const MedRegisterCard = () => {
             className="mb-3"
             controlId="email"
           >
-            <Form.Control type="email" />
+            <Form.Control type="email" required/>
           </FloatingLabel>
           <FloatingLabel
             label="Confirmar correo electrónico"
             className="mb-3"
             controlId="confEmail"
           >
-            <Form.Control type="email" />
+            <Form.Control type="email" required/>
           </FloatingLabel>
           <Row>
             <Col>
@@ -123,7 +123,7 @@ const MedRegisterCard = () => {
                 className="mb-3"
                 controlId="pass"
               >
-                <Form.Control type="password" />
+                <Form.Control type="password" required/>
               </FloatingLabel>
             </Col>
             <Col>
@@ -132,20 +132,16 @@ const MedRegisterCard = () => {
                 className="mb-3"
                 controlId="confPass"
               >
-                <Form.Control type="password" />
+                <Form.Control type="password" required/>
               </FloatingLabel>
             </Col>
           </Row>
           <div
             style={{
               display: "flex",
-              marginTop: "20px",
               justifyContent: "space-around",
             }}
           >
-            <Button variant="outline-danger" type="submit">
-              Limpiar
-            </Button>
             <Button variant="success" type="submit">
               Registrar
             </Button>

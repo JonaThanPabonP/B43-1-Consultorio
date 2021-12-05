@@ -12,7 +12,7 @@ const MedRegister = () => {
           margin: "80px",
         }}
       >
-        <h1 style={{ fontSize:"60px", fontFamily: "sans-serif" }}>REGISTRO DE MÉDICO</h1>
+        <h1 style={{ fontSize:"60px", fontFamily: "sans-serif" }}><strong>REGISTRO DE MÉDICO</strong></h1>
         <MedRegisterCard/>
       </div>
     </>

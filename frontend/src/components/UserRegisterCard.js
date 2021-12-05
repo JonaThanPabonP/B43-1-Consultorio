@@ -13,12 +13,14 @@ const UserRegisterCard = () => {
       name: even.target[0].value,
       docType: even.target[1].value,
       docNumber: even.target[2].value,
-      spec: even.target[3].value,
-      regNumber: even.target[4].value,
-      email: even.target[5].value,
-      confEmail: even.target[6].value,
-      pass: even.target[6].value,
-      confPass: even.target[6].value,
+      birth: even.target[3].value,
+      gender: even.target[4].value,
+      address: even.target[5].value,
+      phoneNumber: even.target[6].value,
+      email: even.target[7].value,
+      confEmail: even.target[8].value,
+      pass: even.target[9].value,
+      confPass: even.target[10].value,
       photo: user.photoUrl,
       id: user.uid,
     };
@@ -28,7 +30,7 @@ const UserRegisterCard = () => {
       if (res == "Success") {
         user.flagNewUser = false;
         localStorage.setItem("user", JSON.stringify(user));
-        window.location.href = "/home";
+        window.location.href = "/user-home";
       } else {
         alert("Algo salió mal, vuelve a intentarlo");
       }
@@ -115,7 +117,6 @@ const UserRegisterCard = () => {
           <div
             style={{
               display: "flex",
-              marginTop: "20px",
               justifyContent: "space-around",
             }}
           >

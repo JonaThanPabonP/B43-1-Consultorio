@@ -41,7 +41,7 @@ const MedLoginCard = () => {
             <Button variant="success" type="submit">
               Entrar
             </Button>
-            <Button size="sm" variant="link" type="submit" href="/user-register">
+            <Button size="sm" variant="link" type="submit" href="/med-register">
               Registrarme
             </Button>
           </div>
