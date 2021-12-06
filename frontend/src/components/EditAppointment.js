@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, Image, Button } from "react-bootstrap";
+import { Tooltip, OverlayTrigger, Modal, Image, Button } from "react-bootstrap";
 import EditAppointmentForm from "./EditAppointmentForm";
 
 import btnedit from "../assets/img/editar.png";
@@ -36,9 +36,11 @@ const EditAppointment = () => {
 
   return (
     <>
-      <Button variant="link" onClick={() => setModalShow(true)}>
-        <Image src={btnedit} width="35px" />
-      </Button>
+      <OverlayTrigger overlay={<Tooltip>Editar</Tooltip>}>
+        <Button variant="link" onClick={() => setModalShow(true)}>
+          <Image src={btnedit} width="35px" />
+        </Button>
+      </OverlayTrigger>
 
       <MyVerticallyCenteredModal
         show={modalShow}

@@ -7,7 +7,7 @@ const router = express.Router();
 // Método GET
 // Obtener cita por id
 router.get('/:id', (req,res)=>{
-    const aid = req.params.id;
+    const aid = req.params.aid;
     dbA.getAppointment(aid, function(doc){
         res.send(doc);
     })
@@ -28,7 +28,7 @@ router.get('/searchdate/:fecha', (req,res)=>{
 })
 // Obtener listado de citas por usuario(id)
 router.get('/searchuser/:paciente', (req,res)=>{
-    const paciente = req.params.idPaciente;
+    const paciente = req.params.paciente;
     dbA.searchAppoByUser(paciente, function (arrayAppointments){
         res.send(arrayAppointments);
     })

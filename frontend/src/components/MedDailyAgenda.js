@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Stack, Form, Col, Button } from "react-bootstrap";
 
 import Appointment from "./Appointment";
+import { searchAppoByDate } from "../apis/crudAppos";
+
 
 const MedDailyAgenda = () => {
+  var user = JSON.parse(localStorage.getItem("user"));
+  const [results, setResults] = useState([]);
+
+  useEffect(() => {
+    searchAppoByDate(user.mid, setResults);
+  }, []);
+
   return (
     <>
       <div
@@ -43,9 +52,9 @@ const MedDailyAgenda = () => {
         </div>
         <br />
         <Stack>
-          <Appointment />
-          <Appointment />
-          <Appointment />
+        {results.map((result) => (
+          <Appointment data={result}/>
+          ))}
         </Stack>
       </div>
     </>

@@ -4,14 +4,15 @@ import { FaRegClock, FaRegCalendarAlt, FaStethoscope } from "react-icons/fa";
 
 import btndel from "../assets/img/cancelar.png";
 
-import { deleteAppointment, replaceAppointment } from "../apis/crudAppos";
+import { deleteAppointment } from "../apis/crudAppos";
 import EditAppointment from "./EditAppointment";
 
 const UserAppointment = (props) => {
+  localStorage.setItem("appo", JSON.stringify(props));
   var appo = JSON.parse(localStorage.getItem("appo"));
 
   function del(appo) {
-    deleteAppointment(appo.id, (res) => {
+    deleteAppointment(appo.aid, (res) => {
       console.log(res);
       if (res == "Success") {
         localStorage.deleteItem("appo");
@@ -23,22 +24,6 @@ const UserAppointment = (props) => {
     });
   }
 
-  function ed(appo) {
-    const obj = {
-      
-    };
-
-    replaceAppointment(appo.id, obj, (res) => {
-      console.log(res);
-      if (res == "Success") {
-        localStorage.deleteItem("appo");
-        alert("La cita se actualizó exitosamente.");
-        window.location.href = "/user-home";
-      } else {
-        alert("Algo salió mal, vuelve a intentarlo");
-      }
-    });
-  }
 
   return (
     <div
@@ -73,9 +58,8 @@ const UserAppointment = (props) => {
             <Image src={btndel} width="35px" />
           </Button>
         </OverlayTrigger>
-        <OverlayTrigger overlay={<Tooltip>Editar</Tooltip>}>
+        
           <EditAppointment/>
-        </OverlayTrigger>
       </div>
     </div>
   );

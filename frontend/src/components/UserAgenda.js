@@ -13,7 +13,6 @@ const UserAgenda = () => {
     searchAppoByUser(user.uid, setResults);
   }, []);
 
-  
   return (
     <>
       <div
@@ -45,7 +44,7 @@ const UserAgenda = () => {
         <br />
         <Stack gap={3}>
           {results.map((result) => (
-            <UserAppointment data={result}/>
+            <UserAppointment data={result} />
           ))}
         </Stack>
       </div>

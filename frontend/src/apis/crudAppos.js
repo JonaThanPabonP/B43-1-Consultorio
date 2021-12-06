@@ -36,9 +36,22 @@ export function replaceAppointment(aid, appo, callback) {
 
 export function searchAppoByUser(usuario, callback) {
   axios
-    .get(url + "appointments/searchuser/", usuario)
+    .get(url + "appointments/searchuser/"+ usuario)
     .then((res) => {
       callback(res.data);
+      console.log(res.data);
+    })
+    .catch((err) => {
+      callback(err);
+    });
+}
+
+export function searchAppoByDate(date, callback) {
+  axios
+    .get(url + "appointments/searchdate/"+ date)
+    .then((res) => {
+      callback(res.data);
+      console.log(res.data);
     })
     .catch((err) => {
       callback(err);

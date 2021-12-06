@@ -110,6 +110,7 @@ function searchAppoByUser(usuario, callback) {
     .then((refDoc) => {
       var arrayAppointments = [];
       refDoc.forEach((doc) => {
+        console.log(doc.id, "=>", doc.data);
         arrayAppointments.push(doc.data());
       });
       callback(arrayAppointments);
