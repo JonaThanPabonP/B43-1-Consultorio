@@ -66,9 +66,9 @@ const UserRegisterCard = () => {
                   required
                 >
                   <option></option>
-                  <option value="cc">Cédula de Ciudadanía</option>
-                  <option value="ti">Tarjeta de Identidad</option>
-                  <option value="ce">Cédula de Extranjería</option>
+                  <option value="Cédula de Ciudadanía">Cédula de Ciudadanía</option>
+                  <option value="Tarjeta de Identidad">Tarjeta de Identidad</option>
+                  <option value="Cédula de Extranjería">Cédula de Extranjería</option>
                 </Form.Select>
               </FloatingLabel>
             </Col>

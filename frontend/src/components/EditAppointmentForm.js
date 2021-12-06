@@ -1,11 +1,12 @@
 import React from "react";
 import { Form, Row, FloatingLabel, Col, Button } from "react-bootstrap";
 
-import { addAppointment } from "../apis/crudAppos";
+import { replaceAppointment } from "../apis/crudAppos";
 
-const AppointmentForm = () => {
+const EditAppointmentForm = () => {
 
   var user = JSON.parse(localStorage.getItem("user"));
+  var appo = JSON.parse(localStorage.getItem("appo"));
 
   function save(even) {
     even.preventDefault();
@@ -18,10 +19,10 @@ const AppointmentForm = () => {
       userName: user.name,
     };
 
-    addAppointment(obj, (res) => {
+    replaceAppointment(appo.aid,obj,(res) => {
       console.log(res);
       if (res == "Success") {
-        alert("Cita asignada correctamente.");
+        alert("Cita aactualizada correctamente.");
         window.location.href = "/user-home";
       } else {
         alert("Algo salió mal, vuelve a intentarlo");
@@ -79,7 +80,7 @@ const AppointmentForm = () => {
         </Row>
         <div className = "text-center">
         <Button type="submit" variant="success">
-          Enviar
+          Guardar
         </Button>
         </div>
       </Form>
@@ -87,4 +88,4 @@ const AppointmentForm = () => {
   );
 };
 
-export default AppointmentForm;
+export default EditAppointmentForm;

@@ -105,7 +105,7 @@ function searchAppoByDate(fecha, callback) {
 function searchAppoByUser(usuario, callback) {
   return db
     .collection("appointment")
-    .where("paciente", "==", usuario)
+    .where("userID", "==", usuario)
     .get()
     .then((refDoc) => {
       var arrayAppointments = [];

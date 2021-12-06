@@ -3,9 +3,43 @@ import { Tooltip, OverlayTrigger, Button, Image, Stack } from "react-bootstrap";
 import { FaRegClock, FaRegCalendarAlt, FaStethoscope } from "react-icons/fa";
 
 import btndel from "../assets/img/cancelar.png";
-import btnedit from "../assets/img/editar.png";
 
-const UserAppointment = () => {
+import { deleteAppointment, replaceAppointment } from "../apis/crudAppos";
+import EditAppointment from "./EditAppointment";
+
+const UserAppointment = (props) => {
+  var appo = JSON.parse(localStorage.getItem("appo"));
+
+  function del(appo) {
+    deleteAppointment(appo.id, (res) => {
+      console.log(res);
+      if (res == "Success") {
+        localStorage.deleteItem("appo");
+        alert("La cita se eliminó exitosamente.");
+        window.location.href = "/user-home";
+      } else {
+        alert("Algo salió mal, vuelve a intentarlo");
+      }
+    });
+  }
+
+  function ed(appo) {
+    const obj = {
+      
+    };
+
+    replaceAppointment(appo.id, obj, (res) => {
+      console.log(res);
+      if (res == "Success") {
+        localStorage.deleteItem("appo");
+        alert("La cita se actualizó exitosamente.");
+        window.location.href = "/user-home";
+      } else {
+        alert("Algo salió mal, vuelve a intentarlo");
+      }
+    });
+  }
+
   return (
     <div
       className="bg-light border rounded"
@@ -16,31 +50,31 @@ const UserAppointment = () => {
       }}
     >
       <div>
-        <h4><strong>Especialidad</strong></h4>
+        <h4>
+          <strong>{props.data.spec}</strong>
+        </h4>
         <Stack gap={3} direction="horizontal">
           <FaRegCalendarAlt />
-          <div>Fecha:</div>
+          <div>{props.data.date}</div>
         </Stack>
         <Stack gap={3} direction="horizontal">
           <FaRegClock />
-          <div>Hora:</div>
+          <div>{props.data.hour}</div>
         </Stack>
 
         <Stack gap={3} direction="horizontal">
           <FaStethoscope />
-          <div>Médico:</div>
+          <div>{props.data.med}</div>
         </Stack>
       </div>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <OverlayTrigger overlay={<Tooltip>Borrar</Tooltip>}>
-          <Button variant="link">
+          <Button variant="link" onClick={() => del(appo)}>
             <Image src={btndel} width="35px" />
           </Button>
         </OverlayTrigger>
         <OverlayTrigger overlay={<Tooltip>Editar</Tooltip>}>
-          <Button variant="link">
-            <Image src={btnedit} width="35px" />
-          </Button>
+          <EditAppointment/>
         </OverlayTrigger>
       </div>
     </div>

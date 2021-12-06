@@ -72,9 +72,9 @@ const MedRegisterCard = () => {
                   required
                 >
                   <option></option>
-                  <option value="cc">Cédula de Ciudadanía</option>
-                  <option value="ti">Tarjeta de Identidad</option>
-                  <option value="ce">Cédula de Extranjería</option>
+                  <option value="Cédula de Ciudadanía">Cédula de Ciudadanía</option>
+                  <option value="Tarjeta de Identidad">Tarjeta de Identidad</option>
+                  <option value="Cédula de Extranjería">Cédula de Extranjería</option>
                 </Form.Select>
               </FloatingLabel>
             </Col>
@@ -100,9 +100,9 @@ const MedRegisterCard = () => {
                   required
                 >
                   <option></option>
-                  <option value="mg">Medicina General</option>
-                  <option value="c">Cardiología</option>
-                  <option value="rx">Rayos X</option>
+                  <option value="Medicina General">Medicina General</option>
+                  <option value="Cardiología">Cardiología</option>
+                  <option value="Rayos X">Rayos X</option>
                 </Form.Select>
               </FloatingLabel>
             </Col>
