@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const url = "http://localhost:5000/";
+const url = "https://consultorio-b43-1.herokuapp.com/";
 
 
 export function addUser(user, callback) {
