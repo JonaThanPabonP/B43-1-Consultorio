@@ -1,6 +1,6 @@
 import axios from "axios";
-// const url = "https://consultorio-b43-1.herokuapp.com/";
-const url = "http://localhost:8080/";
+const url = "https://consultorio-b43-1.herokuapp.com/";
+// const url = "http://localhost:8080/";
 
 export function getAppointment(aid, callback) {
   axios
