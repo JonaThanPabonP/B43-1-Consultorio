@@ -1,5 +1,6 @@
 import axios from "axios";
-const url = "https://consultorio-b43-1.herokuapp.com/";
+// const url = "https://consultorio-b43-1.herokuapp.com/";
+const url = "http://localhost:8080/";
 
 export function getAppointment(aid, callback) {
   axios
@@ -39,7 +40,6 @@ export function searchAppoByUser(usuario, callback) {
     .get(url + "appointments/searchuser/"+ usuario)
     .then((res) => {
       callback(res.data);
-      console.log(res.data);
     })
     .catch((err) => {
       callback(err);
@@ -62,7 +62,7 @@ export function deleteAppointment(aid, callback) {
   axios
     .delete(url + "appointments/" + aid)
     .then((res) => {
-      callback(res);
+      callback(res.data);
     })
     .catch((err) => {
       callback(err);

@@ -8,14 +8,11 @@ import { deleteAppointment } from "../apis/crudAppos";
 import EditAppointment from "./EditAppointment";
 
 const UserAppointment = (props) => {
-  localStorage.setItem("appo", JSON.stringify(props));
-  var appo = JSON.parse(localStorage.getItem("appo"));
 
   function del(appo) {
-    deleteAppointment(appo.aid, (res) => {
+    deleteAppointment(appo, (res) => {
       console.log(res);
       if (res == "Success") {
-        localStorage.deleteItem("appo");
         alert("La cita se eliminó exitosamente.");
         window.location.href = "/user-home";
       } else {
@@ -54,12 +51,12 @@ const UserAppointment = (props) => {
       </div>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <OverlayTrigger overlay={<Tooltip>Borrar</Tooltip>}>
-          <Button variant="link" onClick={() => del(appo)}>
+          <Button variant="link" onClick={() => del(props.data.aid)}>
             <Image src={btndel} width="35px" />
           </Button>
         </OverlayTrigger>
         
-          <EditAppointment/>
+          <EditAppointment data={props.data}/>
       </div>
     </div>
   );

@@ -3,12 +3,11 @@ import { Form, Row, FloatingLabel, Col, Button } from "react-bootstrap";
 
 import { replaceAppointment } from "../apis/crudAppos";
 
-const EditAppointmentForm = () => {
-
+const EditAppointmentForm = (props) => {
   var user = JSON.parse(localStorage.getItem("user"));
-  var appo = JSON.parse(localStorage.getItem("appo"));
+  var id = props.aid;
 
-  function save(even) {
+  function update(even) {
     even.preventDefault();
     const obj = {
       date: even.target[0].value,
@@ -19,10 +18,10 @@ const EditAppointmentForm = () => {
       userName: user.name,
     };
 
-    replaceAppointment(appo.aid,obj,(res) => {
+    replaceAppointment(id, obj, (res) => {
       console.log(res);
       if (res == "Success") {
-        alert("Cita aactualizada correctamente.");
+        alert("Cita actualizada correctamente.");
         window.location.href = "/user-home";
       } else {
         alert("Algo salió mal, vuelve a intentarlo");
@@ -30,10 +29,9 @@ const EditAppointmentForm = () => {
     });
   }
 
-
   return (
     <>
-      <Form onSubmit={save}>
+      <Form onSubmit={update}>
         <Row>
           <Col>
             <FloatingLabel label="Fecha" className="mb-3">
@@ -78,10 +76,10 @@ const EditAppointmentForm = () => {
             </Form.Select>
           </FloatingLabel>
         </Row>
-        <div className = "text-center">
-        <Button type="submit" variant="success">
-          Guardar
-        </Button>
+        <div className="text-center">
+          <Button type="submit" variant="success">
+            Guardar
+          </Button>
         </div>
       </Form>
     </>

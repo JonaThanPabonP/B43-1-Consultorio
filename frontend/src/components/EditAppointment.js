@@ -19,7 +19,7 @@ function MyVerticallyCenteredModal(props) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <EditAppointmentForm />
+          <EditAppointmentForm data={props.data}/>
         </Modal.Body>
         <Modal.Footer>
           <p style={{ color: "red", fontSize: "10px" }}>
